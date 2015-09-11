@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <objectAnimator
+
+        android:propertyName="pathData"
+        android:valueFrom="@string/head_from"
+        android:valueTo="@string/head_to"
+        android:valueType="pathType"
+        android:duration="350"
+        android:interpolator="@android:interpolator/accelerate_decelerate"/>
+</set>

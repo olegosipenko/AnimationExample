@@ -1,0 +1,7 @@
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:propertyName="rotation"
+
+    android:valueFrom="40"
+    android:valueTo="180" />

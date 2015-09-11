@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/droid">
+
+    <target
+        android:animation="@anim/head_anim"
+        android:name="head"/>
+    
+    <target
+        android:animation="@anim/eyes_anim"
+        android:name="eyes"/>
+
+</animated-vector>
