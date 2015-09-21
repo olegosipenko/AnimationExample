@@ -1,6 +1,7 @@
 package oleg.osipenko.animationexample;
 
 import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.wnafee.vector.compat.ResourcesCompat;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,48 +28,14 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         final ImageView anim = (ImageView) findViewById(R.id.animation);
+        Drawable droid = ResourcesCompat.getDrawable(this, R.drawable.droid_avd);
+        anim.setBackground(droid);
         Button btn = (Button) findViewById(R.id.btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ((Animatable) anim.getBackground()).start();
-            }
-        });
-        String soft = "Soft";
-        String media = "Media";
-
-        ParseQuery<OlegTest> querySoft1 = ParseQuery.getQuery(OlegTest.class);
-        querySoft1.whereContains("skills", soft);
-        ParseQuery<OlegTest> querySoft2 = ParseQuery.getQuery(OlegTest.class);
-        querySoft2.whereContains("skills", soft.toLowerCase());
-        ParseQuery<OlegTest> querySoft3 = ParseQuery.getQuery(OlegTest.class);
-        querySoft3.whereContains("skills", soft.toUpperCase());
-        ParseQuery<OlegTest> querySoft = ParseQuery.or(Arrays.asList(querySoft1, querySoft2, querySoft3));
-        String pattern = "^.*" + soft + ".*$";
-        ParseQuery<OlegTest> queryreg = ParseQuery.getQuery(OlegTest.class);
-        queryreg.whereMatches("skills", pattern, "i");
-        queryreg.findInBackground(new FindCallback<OlegTest>() {
-            @Override
-            public void done(List<OlegTest> list, ParseException e) {
-                if (e != null) {
-                    Log.e(MainActivity.class.getName(), e.getMessage());
-                    return;
-                } else {
-                    Log.d(MainActivity.class.getName(), "reg soft found " + list.size() + "objects");
-                }
-            }
-        });
-
-        querySoft.findInBackground(new FindCallback<OlegTest>() {
-            @Override
-            public void done(List<OlegTest> list, ParseException e) {
-                if (e != null) {
-                    Log.e(MainActivity.class.getName(), e.getMessage());
-                    return;
-                } else {
-                    Log.d(MainActivity.class.getName(), "soft found " + list.size() + "objects");
-                }
             }
         });
     }

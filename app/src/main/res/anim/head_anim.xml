@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android" >
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <objectAnimator
 
@@ -7,6 +8,7 @@
         android:valueFrom="@string/head_from"
         android:valueTo="@string/head_to"
         android:valueType="pathType"
+        app:vc_valueType="pathType"
         android:duration="350"
         android:interpolator="@android:interpolator/accelerate_decelerate"/>
 </set>
